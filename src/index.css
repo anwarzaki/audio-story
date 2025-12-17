@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Color palette */
+    --color-primary: #10B981;
+    --color-primary-dark: #059669;
+    --color-primary-light: #D1FAE5;
+    --color-secondary-orange: #F59E0B;
+    --color-secondary-purple: #A855F7;
+    --color-background-mint: #F0FDF4;
+    --color-background-white: #FFFFFF;
+    --color-text-dark: #1F2937;
+    --color-text-gray: #6B7280;
+    --color-text-light-gray: #9CA3AF;
+    --color-border-light: #E5E7EB;
+    
+    /* Shadows */
+    --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+    /* Border radius */
+    --radius-card: 1.5rem;
+    --radius-button: 0.75rem;
+    --radius-full: 9999px;
+    
+    /* Spacing */
+    --spacing-section: 1.5rem;
+    
+    /* Responsive breakpoints */
+    --breakpoint-tablet: 768px;
+    --breakpoint-laptop: 1280px;
+    
+    /* Container max-widths */
+    --container-mobile: 640px;
+    --container-tablet: 768px;
+    --container-laptop: 1280px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background-mint);
+    color: var(--color-text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .card {
+    background-color: var(--color-background-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  /* Responsive container */
+  .responsive-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--container-mobile);
+  }
+  
+  @media (min-width: 768px) {
+    .responsive-container {
+      max-width: var(--container-tablet);
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .responsive-container {
+      max-width: var(--container-laptop);
+    }
+  }
+}
+
+@utility scrollbar-hide {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
