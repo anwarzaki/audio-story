@@ -1,4 +1,4 @@
-import { ArrowLeft, FileText, Pencil, Heart, Volume2, Rewind, SkipBack, Play, Pause, SkipForward, Forward, Repeat } from 'lucide-react';
+import { FileText, Heart, Volume2, SkipBack, Play, Pause, SkipForward, Repeat, ChevronDown, ClipboardCheck, RotateCcw, Gauge } from 'lucide-react';
 import type { Story, AudioPlayerState } from '../types';
 import { formatTime } from '../utils';
 
@@ -21,128 +21,128 @@ export default function NowPlayingPage({
   onBack
 }: NowPlayingPageProps) {
   const progress = (audioState.currentTime / audioState.duration) * 100;
-
+  
   return (
-    <div className="min-h-screen pb-20" style={{ backgroundColor: 'var(--color-background-white)' }}>
+    <div className="min-h-screen pb-20 bg-[#F0FDF4]">
       {/* Top bar */}
-      <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 py-4" style={{ borderBottom: '1px solid var(--color-border-light)' }}>
-        <button onClick={onBack} className="p-2 -ml-2">
-          <ArrowLeft size={24} style={{ color: 'var(--color-text-dark)' }} />
+      <div className="flex items-center justify-between px-6 py-6" >
+        <button onClick={onBack} className="p-2 -ml-2 rounded-full hover:bg-black/5 transition-colors">
+          <ChevronDown size={28} className="text-gray-600" />
         </button>
-        <h1 className="text-sm font-semibold uppercase tracking-wide" style={{ color: 'var(--color-text-gray)' }}>
+        <h1 className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500">
           Now Playing
         </h1>
-        <div className="flex items-center gap-2">
-          <button className="p-2">
-            <FileText size={20} style={{ color: 'var(--color-text-gray)' }} />
+        <div className="flex items-center gap-3">
+          <button className="p-2 rounded-full hover:bg-black/5 transition-colors">
+            <FileText size={24} className="text-gray-500" />
           </button>
-          <button className="p-2 relative">
-            <Pencil size={20} style={{ color: 'var(--color-text-gray)' }} />
-            <span className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white" style={{ backgroundColor: 'var(--color-primary)' }} />
+          <button className="relative w-10 h-10 bg-[#10B981] rounded-xl flex items-center justify-center shadow-md">
+            <ClipboardCheck size={20} className="text-white" />
+            <span className="absolute -top-2 -right-2 bg-[#F59E0B] text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-[#F0FDF4]">
+              7
+            </span> 
           </button>
         </div>
       </div>
 
-      <div className="px-4 sm:px-6 md:px-8 pt-6 sm:pt-7 md:pt-8 max-w-2xl mx-auto">
+      <div className="px-6 pt-2 max-w-2xl mx-auto">
         {/* Story artwork */}
-        <div
-          className="rounded-3xl overflow-hidden mb-6 border-4 max-w-md mx-auto"
-          style={{ borderColor: 'var(--color-primary-light)' }}
-        >
+        <div className="bg-white p-3 rounded-[2.5rem] shadow-xl mb-8 mx-auto w-full aspect-square">
           <img
             src={story.coverImage}
             alt={story.title}
-            className="w-full aspect-square object-cover"
+            className="w-full h-full object-cover rounded-[2rem]"
           />
         </div>
 
         {/* Story info */}
-        <div className="mb-6">
+        <div className="mb-8">
           <div className="flex items-start justify-between mb-2">
-            <h2 className="text-2xl font-bold flex-1" style={{ color: 'var(--color-text-dark)' }}>
+            <h2 className="text-2xl font-bold text-[#1F2937] leading-tight flex-1 pr-4">
               {story.title}
             </h2>
-            <button onClick={onFavoriteToggle} className="p-2 -mr-2">
+            <button onClick={onFavoriteToggle} className="pt-1">
               <Heart
                 size={24}
-                style={{
-                  color: story.isFavorite ? 'var(--color-primary)' : 'var(--color-text-gray)',
-                  fill: story.isFavorite ? 'var(--color-primary)' : 'none'
-                }}
+                className={`transition-colors ${story.isFavorite ? 'fill-[#10B981] text-[#10B981]' : 'text-gray-400'}`}
               />
             </button>
           </div>
-          <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-gray)' }}>
+          <p className="text-gray-500 text-base">
             {story.description}
           </p>
         </div>
 
         {/* Quiz button */}
         <button
-          className="w-full rounded-xl py-4 px-6 mb-8 flex items-center justify-between"
-          style={{ backgroundColor: 'var(--color-primary)' }}
+          className="w-full bg-[#10B981] active:bg-[#059669] transition-colors rounded-2xl py-4 px-5 mb-10 flex items-center justify-between shadow-lg shadow-green-200"
         >
           <div className="flex items-center gap-3">
-            <FileText size={20} style={{ color: 'white' }} />
-            <span className="text-white font-semibold">Test Your Understanding</span>
+            <ClipboardCheck size={24} className="text-white" />
+            <span className="text-white font-semibold text-lg">Test Your Understanding</span>
           </div>
-          <span className="text-white text-sm font-medium">7 Questions</span>
+          <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+            7 Questions
+          </span>
         </button>
 
         {/* Progress bar */}
-        <div className="mb-2">
-          <div className="relative w-full h-1 bg-gray-200 rounded-full overflow-hidden">
+        <div className="mb-3">
+          <div className="relative w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="absolute top-0 left-0 h-full rounded-full transition-all"
+              className="absolute top-0 left-0 h-full rounded-full transition-all duration-100"
               style={{
                 width: `${progress}%`,
-                backgroundColor: 'var(--color-primary)'
+                backgroundColor: '#10B981'
               }}
             />
           </div>
         </div>
 
         {/* Time labels */}
-        <div className="flex items-center justify-between mb-8 text-xs" style={{ color: 'var(--color-text-gray)' }}>
-          <span>{formatTime(audioState.currentTime)}</span>
+        <div className="flex items-center justify-between mb-8 text-xs font-medium text-gray-500">
+          <span className="text-[#10B981]">{formatTime(audioState.currentTime)}</span>
           <span>{formatTime(audioState.duration)}</span>
         </div>
 
         {/* Playback controls */}
-        <div className="flex items-center justify-center gap-4 md:gap-6">
-          <button className="p-2">
-            <Volume2 size={24} style={{ color: 'var(--color-text-gray)' }} />
+        <div className="flex items-center justify-between px-2">
+          <button className="text-gray-400 hover:text-gray-600 transition-colors">
+            <Volume2 size={22} />
           </button>
-          <button className="p-2">
-            <Rewind size={24} style={{ color: 'var(--color-text-gray)' }} />
+          
+          <button className="text-gray-600 hover:text-gray-800 transition-colors">
+            <RotateCcw size={24} />
           </button>
-          <button className="p-2">
-            <SkipBack size={28} style={{ color: 'var(--color-text-gray)' }} />
+          
+          <button className="text-gray-700 hover:text-gray-900 transition-colors">
+            <SkipBack size={32} strokeWidth={2.5} />
           </button>
+          
           <button
             onClick={onPlayPause}
-            className="w-16 h-16 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: 'var(--color-primary)' }}
+            className="w-16 h-16 bg-[#10B981] hover:bg-[#059669] active:scale-95 transition-all rounded-full flex items-center justify-center shadow-lg shadow-green-200"
           >
             {audioState.isPlaying ? (
-              <Pause size={28} style={{ color: 'white' }} fill="white" />
+              <Pause size={32} className="text-white fill-white" />
             ) : (
-              <Play size={28} style={{ color: 'white' }} fill="white" />
+              <Play size={32} className="text-white fill-white ml-1" />
             )}
           </button>
-          <button className="p-2">
-            <SkipForward size={28} style={{ color: 'var(--color-text-gray)' }} />
+          
+          <button className="text-gray-700 hover:text-gray-900 transition-colors">
+            <SkipForward size={32} strokeWidth={2.5} />
           </button>
-          <button className="p-2">
-            <Forward size={24} style={{ color: 'var(--color-text-gray)' }} />
+          
+          <button className="text-gray-600 hover:text-gray-800 transition-colors">
+             <Repeat
+               size={24}
+               className={audioState.isRepeat ? 'text-[#10B981]' : 'text-gray-500'}
+             />
           </button>
-          <button className="p-2">
-            <Repeat
-              size={24}
-              style={{
-                color: audioState.isRepeat ? 'var(--color-primary)' : 'var(--color-text-gray)'
-              }}
-            />
+          
+          <button className="text-gray-400 hover:text-gray-600 transition-colors">
+            <Gauge size={22} />
           </button>
         </div>
       </div>
