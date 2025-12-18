@@ -25,9 +25,9 @@ const PracticeWithAISection = memo(function PracticeWithAISection({ cards }: Pra
         className="flex gap-4 overflow-x-auto pb-4 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 px-4 sm:px-6 md:px-8 lg:px-10 scrollbar-hide"
       >
         {cards.map((card) => (
-          <button
+          <div
             key={card.id}
-            className="flex-shrink-0 w-40 md:w-48 lg:w-56"
+            className="flex-shrink-0 w-40 md:w-48 lg:w-56 cursor-pointer"
           >
             <div className="card overflow-hidden">
               <div className="aspect-square bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center p-4">
@@ -41,7 +41,7 @@ const PracticeWithAISection = memo(function PracticeWithAISection({ cards }: Pra
             <div className="p-3">
               <h3 className="text-sm font-semibold text-center" style={{ color: 'var(--color-text-dark)' }}>{card.title}</h3>
             </div>
-          </button>
+          </div>
         ))}
       </div>
     </div>

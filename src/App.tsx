@@ -2,6 +2,7 @@ import { useState, Suspense, lazy } from 'react';
 import BottomNavigation from './components/BottomNavigation';
 import { getUserProfile, getAudioStories, getQuizTopics, getDifficultyLevels } from './mockData';
 import type { NavigationTab, AudioPlayerState } from './types';
+import Loader from './components/Loader';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const NowPlayingPage = lazy(() => import('./pages/NowPlayingPage'));
@@ -59,7 +60,7 @@ function App() {
 
   return (
     <div className="responsive-container relative">
-      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         {currentScreen === 'home' && (
           <HomePage
             userProfile={userProfile}

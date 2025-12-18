@@ -93,6 +93,8 @@ export const getDifficultyLevels = (): DifficultyInfo[] => [
   }
 ];
 
+// // Get practice cards
+
 // Get practice cards
 export const getPracticeCards = (): PracticeCard[] => [
   {
@@ -103,38 +105,52 @@ export const getPracticeCards = (): PracticeCard[] => [
     type: "human"
   },
   {
-    id: "4",
+    id: "2",
     title: "Summer Vacation",
     description: "Share your best holiday memories",
     image: "https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHx8fDA%3D",
     type: "human"
   },
   {
-    id: "2",
+    id: "3",
+    title: "Traveling",
+    description: "Explore new places and cultures",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fm=jpg&q=60&w=3000",
+    type: "human"
+  },
+  {
+    id: "4",
     title: "Talk with Doraemon",
     description: "",
     image: "https://www.partysuppliesindia.com/cdn/shop/products/A2_33_c020ee18-0c82-4dc1-b16d-c90a64707b20.jpg?v=1735571897&width=1500",
     type: "ai"
   },
   {
-    id: "3",
+    id: "5",
     title: "Talk with Spider Man",
     description: "",
     image: "https://i.etsystatic.com/42415510/r/il/d1e861/5761455247/il_1080xN.5761455247_13un.jpg",
     type: "ai"
   },
   {
-    id: "5",
+    id: "6",
     title: "Talk with Batman",
     description: "",
     image: "https://www.jammable.com/cdn-cgi/image/width=3840,quality=25,format=webp/https://imagecdn.voicify.ai/models/55c75bda-317a-42b8-95c2-b39514a8808b.png",
     type: "ai"
   },
   {
-    id: "6",
-    title: "Talk with Superman",
+    id: "7",
+    title: "Talk with Captain America",
     description: "",
-    image: "https://pbs.twimg.com/profile_images/1080658072773816326/C212ZBsx_400x400.jpg",
+    image: "https://fatcatcollectibles.in/cdn/shop/files/HotToys-CapAmerica-1.webp?v=1693739197&width=2048",
+    type: "ai"
+  },
+  {
+    id: "8",
+    title: "Talk with Deadpool",
+    description: "",
+    image: "https://www.esquireme.com/wp-content/uploads/sites/9/cloud/2021/09/09/deadpool-1563973577.jpg",
     type: "ai"
   }
 ];

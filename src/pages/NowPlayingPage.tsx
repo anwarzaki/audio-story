@@ -45,7 +45,7 @@ export default function NowPlayingPage({
         </div>
       </div>
 
-      <div className="px-6 pt-2 max-w-2xl mx-auto">
+      <div className="px-6 max-w-md mx-auto">
         {/* Story artwork */}
         <div className="bg-white p-3 rounded-[2.5rem] shadow-xl mb-8 mx-auto w-full aspect-square border-green-400 border-2">
           <img
@@ -56,7 +56,7 @@ export default function NowPlayingPage({
         </div>
 
         {/* Story info */}
-        <div className="mb-8">
+        <div className="mb-4">
           <div className="flex items-start justify-between mb-2">
             <h2 className="text-2xl font-bold text-[#1F2937] leading-tight flex-1 pr-4">
               {story.title}
@@ -87,7 +87,7 @@ export default function NowPlayingPage({
         </button>
 
         {/* Progress bar */}
-        <div className="mb-3">
+        <div className="mb-1">
           <div className="relative w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="absolute top-0 left-0 h-full rounded-full transition-all duration-100"

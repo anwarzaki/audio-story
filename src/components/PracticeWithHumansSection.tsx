@@ -31,9 +31,9 @@ const PracticeWithHumansSection = memo(function PracticeWithHumansSection({ card
         className="flex gap-4 overflow-x-auto pb-4 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 px-4 sm:px-6 md:px-8 lg:px-10 scrollbar-hide"
       >
         {cards.map((card) => (
-          <button
+          <div
             key={card.id}
-            className="flex-shrink-0 w-72 md:w-80 lg:w-96"
+            className="flex-shrink-0 w-72 md:w-80 lg:w-96 cursor-pointer"
           >
             <div className="card overflow-hidden p-6 relative h-50">
               <img
@@ -50,7 +50,7 @@ const PracticeWithHumansSection = memo(function PracticeWithHumansSection({ card
                 </button> 
               </div>
             </div>
-          </button>
+          </div>
         ))}
       </div>
     </div>
