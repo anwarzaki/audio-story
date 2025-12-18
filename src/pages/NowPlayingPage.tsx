@@ -47,7 +47,7 @@ export default function NowPlayingPage({
 
       <div className="px-6 pt-2 max-w-2xl mx-auto">
         {/* Story artwork */}
-        <div className="bg-white p-3 rounded-[2.5rem] shadow-xl mb-8 mx-auto w-full aspect-square">
+        <div className="bg-white p-3 rounded-[2.5rem] shadow-xl mb-8 mx-auto w-full aspect-square border-green-400 border-2">
           <img
             src={story.coverImage}
             alt={story.title}

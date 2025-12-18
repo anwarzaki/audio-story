@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import HomePage from './components/HomePage';
-import NowPlayingPage from './components/NowPlayingPage';
-import QuizCreationPage from './components/QuizCreationPage';
+import { useState, Suspense, lazy } from 'react';
 import BottomNavigation from './components/BottomNavigation';
 import { getUserProfile, getAudioStories, getQuizTopics, getDifficultyLevels } from './mockData';
 import type { NavigationTab, AudioPlayerState } from './types';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const NowPlayingPage = lazy(() => import('./pages/NowPlayingPage'));
+const QuizCreationPage = lazy(() => import('./pages/QuizCreationPage'));
 
 type Screen = 'home' | 'now-playing' | 'quiz';
 
@@ -58,34 +59,36 @@ function App() {
 
   return (
     <div className="responsive-container relative">
-      {currentScreen === 'home' && (
-        <HomePage
-          userProfile={userProfile}
-          stories={stories}
-          onStoryClick={handleStoryClick}
-        />
-      )}
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+        {currentScreen === 'home' && (
+          <HomePage
+            userProfile={userProfile}
+            stories={stories}
+            onStoryClick={handleStoryClick}
+          />
+        )}
 
-      {currentScreen === 'now-playing' && (
-        <NowPlayingPage
-          story={selectedStory}
-          audioState={audioState}
-          onPlayPause={handlePlayPause}
-          onSeek={() => { }}
-          onVolumeChange={() => { }}
-          onRepeatToggle={() => setAudioState(prev => ({ ...prev, isRepeat: !prev.isRepeat }))}
-          onFavoriteToggle={handleFavoriteToggle}
-          onBack={handleBackToHome}
-        />
-      )}
+        {currentScreen === 'now-playing' && (
+          <NowPlayingPage
+            story={selectedStory}
+            audioState={audioState}
+            onPlayPause={handlePlayPause}
+            onSeek={() => { }}
+            onVolumeChange={() => { }}
+            onRepeatToggle={() => setAudioState(prev => ({ ...prev, isRepeat: !prev.isRepeat }))}
+            onFavoriteToggle={handleFavoriteToggle}
+            onBack={handleBackToHome}
+          />
+        )}
 
-      {currentScreen === 'quiz' && (
-        <QuizCreationPage
-          topics={topics}
-          difficultyLevels={difficultyLevels}
-          onBack={handleBackToHome}
-        />
-      )}
+        {currentScreen === 'quiz' && (
+          <QuizCreationPage
+            topics={topics}
+            difficultyLevels={difficultyLevels}
+            onBack={handleBackToHome}
+          />
+        )}
+      </Suspense>
 
       {currentScreen !== 'now-playing' && (
         <BottomNavigation
