@@ -20,7 +20,6 @@ export default function HomePage({ userProfile, stories, onStoryClick }: HomePag
 
   return (
     <div className="pb-20 min-h-screen">
-      {/* Header with Green Theme */}
       <HomeHeader userProfile={userProfile} />
 
       <div className="px-4 sm:px-6 md:px-8 lg:px-10 mt-4 sm:mt-5 md:mt-6">

@@ -15,7 +15,7 @@ export default function BottomNavigation({ activeTab, onTabChange }: BottomNavig
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 pb-safe" style={{ backgroundColor: 'var(--color-background-white)', borderTop: '1px solid var(--color-border-light)' }}>
+    <nav className="fixed bottom-0 left-0 right-0 pb-safe z-50" style={{ backgroundColor: 'var(--color-background-white)', borderTop: '1px solid var(--color-border-light)' }}>
       <div className="flex justify-around items-center h-16 responsive-container">
         {tabs.map((tab) => {
           const Icon = tab.icon;
