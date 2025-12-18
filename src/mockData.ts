@@ -2,7 +2,7 @@ import type { UserProfile, Story, QuizTopic, DifficultyInfo, PracticeCard } from
 
 // Get user profile
 export const getUserProfile = (): UserProfile => ({
-  name: "Lorenzo",
+  name: "zaki",
   greeting: "Good Night",
   avatar: "https://i.pravatar.cc/100?u=lorenzo",
   coins: 30,
@@ -37,6 +37,27 @@ export const getAudioStories = (): Story[] => [
     description: "A heartwarming story about friendship and courage",
     duration: 138,
     isFavorite: false
+  },
+  {
+    id: "4",
+    title: "The Magical Tree",
+    coverImage: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=300&h=300",
+    description: "A mysterious tree in the backyard",
+    duration: 120
+  },
+  {
+    id: "5",
+    title: "Lost in the Clouds",
+    coverImage: "https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?auto=format&fit=crop&q=80&w=300&h=300",
+    description: "An adventure in the sky",
+    duration: 150
+  },
+  {
+    id: "6",
+    title: "Secret Garden",
+    coverImage: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=300&h=300",
+    description: "Discovering nature's beauty",
+    duration: 180
   }
 ];
 
@@ -82,17 +103,38 @@ export const getPracticeCards = (): PracticeCard[] => [
     type: "human"
   },
   {
+    id: "4",
+    title: "Summer Vacation",
+    description: "Share your best holiday memories",
+    image: "https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHx8fDA%3D",
+    type: "human"
+  },
+  {
     id: "2",
     title: "Talk with Doraemon",
     description: "",
-    image: "https://picsum.photos/300/300?random=1",
+    image: "https://www.partysuppliesindia.com/cdn/shop/products/A2_33_c020ee18-0c82-4dc1-b16d-c90a64707b20.jpg?v=1735571897&width=1500",
     type: "ai"
   },
   {
     id: "3",
     title: "Talk with Spider Man",
     description: "",
-    image: "https://picsum.photos/300/300?random=2",
+    image: "https://i.etsystatic.com/42415510/r/il/d1e861/5761455247/il_1080xN.5761455247_13un.jpg",
+    type: "ai"
+  },
+  {
+    id: "5",
+    title: "Talk with Batman",
+    description: "",
+    image: "https://www.jammable.com/cdn-cgi/image/width=3840,quality=25,format=webp/https://imagecdn.voicify.ai/models/55c75bda-317a-42b8-95c2-b39514a8808b.png",
+    type: "ai"
+  },
+  {
+    id: "6",
+    title: "Talk with Superman",
+    description: "",
+    image: "https://pbs.twimg.com/profile_images/1080658072773816326/C212ZBsx_400x400.jpg",
     type: "ai"
   }
 ];
